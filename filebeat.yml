@@ -1,0 +1,15 @@
+filebeat:
+  prospectors:
+    -
+      paths:
+        - /tmp/example/example.log
+
+      input_type: log
+      document_type: examplelog
+  registry_file: /var/lib/filebeat/registry
+output:
+  logstash: # not "elasticsearch"!
+    hosts: ["xyz.example.com:port"] # change to your hostname, note change of port
+shipper:
+logging:
+  files:
